@@ -6,8 +6,8 @@ import './css/login.css';
 const CadastroUsuario = props => {
     return(
         <div>
-            <h3> CentralErro de Erros</h3>
-            <h5> Roupa de Sapo</h5>
+            <h3> Central de Erros</h3>
+            <h4> Roupa de Sapo</h4>
             <div className='div-content cadastro-usuario'>
                 <form>
                     <form className='form-group'>

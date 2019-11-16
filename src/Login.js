@@ -7,8 +7,8 @@ import './css/login.css';
 const Login = props => {
     return(
         <div>
-            <h3> CentralErro de Erros</h3>
-            <h5> Roupa de Sapo</h5>
+            <h3> Central de Erros</h3>
+            <h4> Roupa de Sapo</h4>
             <div className='div-content'>
                 <form>
                     <form className='form-group'>
@@ -19,7 +19,7 @@ const Login = props => {
                         <label className='form-label'>Senha</label><br />
                         <input className='form-control' type='password' placeholder='Digite sua senha'></input>
                     </form>
-                    <Link to='/CentralErro'>
+                    <Link to='/erroLista'>
                         <button className='btn-block'>Acessar</button>
                     </Link>
                 </form>

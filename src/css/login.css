@@ -8,8 +8,7 @@ div{
     display: block;
     width: 30vw;
     height: 40vh;
-    padding: 2vw 2vh;
-    color: black;
+    padding: 2vw 3vh;
     background-color: white;
     border: 1px solid #44533f;
     border-radius: 2vh;
@@ -17,8 +16,13 @@ div{
     margin-top: 1vh;
 }
 
+div>h5{
+    text-align: center;
+    color: yellow;
+}
+
 .cadastro-usuario{
-    height: 45vh;
+    height: 50vh;
 }
 
 .form-control{
