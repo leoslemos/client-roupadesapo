@@ -1,4 +1,4 @@
-.content{
+.div-cabecalho{
     margin-top: -15vh;
     position: fixed;
     width: 100%;
@@ -8,7 +8,7 @@
     align-items: flex-end;
 }
 
-.content>.nome-token{
+.div-cabecalho>.nome-token{
     float: left;
     width: 90%;
 }

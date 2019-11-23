@@ -1,28 +1,29 @@
-div{
+.div-login{
     margin: auto;
     text-align: center;
     margin-top: 15vh;
+    align-items: center;
+
+}
+
+.div-login>p{
+    font-size: .75rem;
 }
 
 .div-content{
     display: block;
     width: 30vw;
-    height: 40vh;
+    height: 45vh;
     padding: 2vw 3vh;
     background-color: white;
     border: 1px solid #44533f;
     border-radius: 2vh;
     text-align: left;
-    margin-top: 1vh;
-}
-
-div>h5{
-    text-align: center;
-    color: yellow;
+    margin: auto;
 }
 
 .cadastro-usuario{
-    height: 50vh;
+    height: 55vh;
 }
 
 .form-control{

@@ -1,16 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-import Cabecalho from './Cabecalho';
+import './css/erroLista.css';
 
 const ErroLista = props => {
     return(
         <div>
-            <Cabecalho /> 
-            <Link to='/erroDetalhe'>
-                <h1>Central de erros!!!</h1>
-            </Link>
-                 
+            <div className='div-filtros'>
+                <div className='teste'>
+                    <p>opções de filtros</p>
+                </div>
+            </div>
+            <table>
+
+            </table>
         </div>
     )
 }

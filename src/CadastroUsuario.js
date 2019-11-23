@@ -5,7 +5,7 @@ import './css/login.css';
 
 const CadastroUsuario = props => {
     return(
-        <div>
+        <div  className='div-login'>
             <h3> Central de Erros</h3>
             <h4> Roupa de Sapo</h4>
             <div className='div-content cadastro-usuario'>
@@ -25,7 +25,7 @@ const CadastroUsuario = props => {
                     <Link to='/'><button className='btn-block'>Salvar</button></Link>
                 </form>
             </div>
-            <h6>Projeto Final Aceleradev Codenation Softplan - Sienge</h6>
+            <p><b>Projeto Final Aceleradev Codenation Softplan - Sienge</b></p>
         </div>
     )
 }

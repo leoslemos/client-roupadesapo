@@ -6,7 +6,7 @@ import './css/login.css';
 
 const Login = props => {
     return(
-        <div>
+        <div className='div-login'>
             <h3> Central de Erros</h3>
             <h4> Roupa de Sapo</h4>
             <div className='div-content'>
@@ -28,7 +28,7 @@ const Login = props => {
                     <Link to='/cadastroUsuario' >Novo Cadastro</Link>
                 </div>
             </div>
-            <h6>Projeto Final Aceleradev Codenation Softplan - Sienge</h6>
+            <p><b>Projeto Final Aceleradev Codenation Softplan - Sienge</b></p>
         </div>
     )
 }

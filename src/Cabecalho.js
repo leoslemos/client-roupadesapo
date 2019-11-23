@@ -5,7 +5,7 @@ import './css/cabecalho.css';
 
 const Cabecalho = props => {
     return(
-        <div className='content'>
+        <div className='div-cabecalho'>
             <span className='nome-token'>
                 <h4>Bem vido LEONARDO S. LEMOS.&nbsp;&nbsp;</h4>
                 <h5>Seu token é: rsrsrsrsrsrsrsrs</h5>
