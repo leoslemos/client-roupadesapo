@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './css/login.css';
+import '../css/login.css';
 
 
 const CadastroUsuario = props => {

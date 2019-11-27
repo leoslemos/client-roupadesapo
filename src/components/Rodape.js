@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/rodape.css';
+import '../css/rodape.css';
 
 
 const Rodape = props => {
