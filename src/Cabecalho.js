@@ -12,9 +12,9 @@ const Cabecalho = props => {
             </span>
             <span className='foto-usuario'>
                 <Link to='/cadastroUsuario'>
-                    <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png' />
+                    <img alt="cadastro" src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/1024px-User_icon_2.svg.png' />
                 </Link>
-                <Link to='/'><i class="material-icons"> exit_to_app</i></Link>
+                <Link to='/'><i className="material-icons"> exit_to_app</i></Link>
             </span>
         </div>
     )
