@@ -1,4 +1,8 @@
-.div-login{
+.form-login {
+    margin: 7% auto;
+}
+
+/* .div-login{
     margin: auto;
     text-align: center;
     margin-top: 15vh;
@@ -51,4 +55,4 @@
 
 .novo-cadastro>a{
     color: #3b5534 !important;
-}
+} */

@@ -7,24 +7,17 @@ import ErroLista from './ErroLista';
 import ErroDetalhe from './ErroDetalhe';
 import Cabecalho from './Cabecalho';
 import Rodape from './Rodape';
+import { isAuthenticated } from '../service/auth';
 
 
 function App() {
-  return (
-    <>
-    
+  {console.log(isAuthenticated);}
+  return (    
     <BrowserRouter>
-      <div className="App">
-        <Cabecalho />
-        <Route path='/' exact component={Login} />
-        <Route path='/cadastroUsuario' exact component={CadastroUsuario} />
-        <Route path='/erroLista' exact component={ErroLista} />
-        <Route path='/erroDetalhe' exact component={ErroDetalhe} />
-        <Rodape />
+      <div className="app">
+        <Route path='/' exact component={isAuthenticated ? ErroLista : Login} />
       </div>
     </BrowserRouter>
-    
-    </>
   );
 }
 
