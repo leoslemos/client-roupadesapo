@@ -99,7 +99,7 @@ export default class Login extends React.Component {
                                         <button type="submit" className='btn btn-info btn-block'>Acessar</button>
                                     </div>
                                     <div className="form-group justify-content-center">
-                                        <Link to='/cadastroUsuario' >Novo Cadastro</Link>
+                                        <Link to='/cadastroUsuario' >Novo aqui? Registre-se</Link>
                                     </div>
                                 </form>
                             </div>
