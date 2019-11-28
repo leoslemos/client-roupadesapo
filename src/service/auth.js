@@ -1,10 +1,11 @@
 export const TOKEN_KEY = "jwt_token";
-export const isAuthenticated = sessionStorage.getItem(TOKEN_KEY) !== null;
-export const getToken = sessionStorage.getItem(TOKEN_KEY);
-export const login = token => {
-  sessionStorage.setItem(TOKEN_KEY, token);
+export const API_URL = "http://localhost:8080";
+
+export const isAuthenticated = () => {
+  if (sessionStorage.getItem(TOKEN_KEY) !== null) {
+    return true;
+  }
+  return false;
 };
-export const logout = () => {
-  console.log('retirando token!'); 
-  sessionStorage.removeItem(TOKEN_KEY);
-}
+
+export const getToken = sessionStorage.getItem(TOKEN_KEY);

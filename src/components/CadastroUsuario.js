@@ -1,16 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from '../service/auth';
+import { Container, Row, Col, Card, Alert, Form, Button } from 'react-bootstrap';
 
 const initialState = {
     user: {
         email: '',
         password: '',
         fullName: ''
-    }
+    },
+    errorMessage: ''
 }
-
-const API_URL = "http://localhost:8080";
 
 class CadastroUsuario extends React.Component {
     constructor(props) {
@@ -31,6 +32,14 @@ class CadastroUsuario extends React.Component {
         let password = this.state.user.password;
         let fullName = this.state.user.fullName;
 
+        if (email === '' || password === '' || fullName === '') {
+            this.setState(prevState => ({
+                ...prevState.user,
+                errorMessage: "Todos os campos são obrigatórios!"
+            }));
+            return;
+        }
+
         axios.post(`${API_URL}/v1/user`,
             { email: `${email}`, password: `${password}`, fullName: `${fullName}` })
             .then(resp => {
@@ -39,7 +48,11 @@ class CadastroUsuario extends React.Component {
                 }
             })
             .catch(error => {
-                console.log("error: " + error);
+                this.setState(prevState => ({
+                    ...prevState.user,
+                    errorMessage: "Erro ao efetuar o cadastro"
+                }));
+                return;
         });
     }
 
@@ -49,7 +62,8 @@ class CadastroUsuario extends React.Component {
             user: {
                 ...prevState.user,
                 fullName: e.target.value
-            }
+            },
+            errorMessage: ''
         }));
     }
 
@@ -59,7 +73,8 @@ class CadastroUsuario extends React.Component {
             user: {
                 ...prevState.user,
                 email: e.target.value
-            }
+            },
+            errorMessage: ''
         }));
     }
 
@@ -69,47 +84,71 @@ class CadastroUsuario extends React.Component {
             user: {
                 ...prevState.user,
                 password: e.target.value
-            }
+            },
+            errorMessage: ''
         }));
     }
 
     render() {
         return(
-            <div className='container form-login'>
-                <div className="row justify-content-center align-items-center h-100">
-                    <div className="col col-sm-6 col-md-6 col-lg-4 col-xl-6">
-                        <div className="card">
-                            <div className="card-header bg-white">
-                                <h3 className="card-title text-center">Criar Nova Conta</h3>
-                            </div>
-                            <div className="card-body">
-                                <form onSubmit={this.handleSubmit}>
-                                    <div className='form-group'>
-                                        <label className='form-label'>Nome Completo</label><br />
-                                        <input className='form-control' type='text' name='fullName' placeholder='Informe seu nome' onChange={this.handleChangeName}></input>
-                                    </div>
-                                    <div className='form-group'>
-                                        <label className='form-label'>E-mail</label><br />
-                                        <input className='form-control' type='email' name='email' placeholder='Informe seu e-mail' onChange={this.handleChangeEmail}></input>
-                                    </div>
-                                    <div className='form-group'>
-                                        <label className='form-label'>Senha</label><br />
-                                        <input className='form-control' type='password' name='password' placeholder='Digite sua senha' onChange={this.handleChangePassword}></input>
-                                    </div>
-                                    <div className="form-group">
-                                        <button type="submit" className='btn btn-info btn-block'>Cadastrar</button>
-                                    </div>
-                                    <div className="form-group justify-content-center">
-                                        <Link to='/' >Já é cadastrado? Faça login</Link>
-                                    </div>
-                                </form>
-                            </div>
-                            <div className="card-footer bg-white text-center">
-                                <span><b>Projeto Final Aceleradev Codenation Softplan - Sienge</b></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div>
+                <Container className="form-login">
+                    <Row className="justify-content-center align-items-center h-100">
+                        <Col sm={6} md={6} lg={4} xl={6}>
+                            <Card>
+                                <Card.Header className="bg-white">
+                                    <Card.Title className="text-center">Criar Nova Conta</Card.Title>
+                                </Card.Header>
+                                <Card.Body>
+                                    {
+                                        this.state.errorMessage !== '' ? 
+                                        (
+                                            <Alert variant="danger" className="text-center">{this.state.errorMessage}</Alert>
+                                        ) : ''
+                                    }
+                                    <Form onSubmit={this.handleSubmit}>
+                                        <Form.Group controlId="userRegisterName">
+                                            <Form.Label>Nome Completo</Form.Label><br />
+                                            <Form.Control 
+                                                type='text' 
+                                                name='fullName' 
+                                                placeholder='Informe seu nome' 
+                                                onChange={this.handleChangeName} 
+                                            />
+                                        </Form.Group>
+                                        <Form.Group controlId="userRegisterEmail">
+                                            <Form.Label>E-mail</Form.Label><br />
+                                            <Form.Control 
+                                                type='email' 
+                                                name='email' 
+                                                placeholder='Informe seu e-mail' 
+                                                onChange={this.handleChangeEmail} 
+                                            />
+                                        </Form.Group>
+                                        <Form.Group controlId="userRegisterPassword">
+                                            <Form.Label>Senha</Form.Label><br />
+                                            <Form.Control 
+                                                type='password' 
+                                                name='password' 
+                                                placeholder='Digite sua senha' 
+                                                onChange={this.handleChangePassword} 
+                                            />
+                                        </Form.Group>
+                                        <Form.Group>
+                                            <Button type="submit" variant="info" block>Cadastrar</Button>
+                                        </Form.Group>
+                                        <Form.Group className="justify-content-center">
+                                            <Link to='/' >Já é cadastrado? Faça login</Link>
+                                        </Form.Group>
+                                    </Form>
+                                </Card.Body>
+                                <Card.Footer className="bg-white text-center">
+                                    <span><b>Projeto Final Aceleradev Codenation Softplan - Sienge</b></span>
+                                </Card.Footer>
+                            </Card>
+                        </Col>
+                    </Row>
+                </Container>
             </div>
         )
     }
