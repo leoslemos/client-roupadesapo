@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getToken } from '../service/auth';
+import { Navbar } from 'react-bootstrap';
 
+import Logo from '../assets/images/logo.png'
 import '../css/cabecalho.css';
 
 const Cabecalho = props => {
     return(
-        <div className='navbar navbar-expand-lg navbar-dark bg-dark'>
-            <span className="text-white">Bem vindo Usuário. Seu token é {getToken}</span>
-            <Link to='/'><i className="material-icons"> exit_to_app</i></Link>
+        <div>
+            <Navbar expand="lg" bg="info" className='d-flex justify-content-between'>
+                <Link to='/' className="navbar-brand"><img src={Logo} width={80} alt="Logotipo da Codenation" /></Link>
+                <span className="text-white">Bem vindo Usuário. Seu token é A4S66A4S6aASasdasd</span>
+                <Link to='/logout' className='text-white'>Sair</Link>
+            </Navbar>
         </div>
     )
 }
