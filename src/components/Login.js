@@ -23,7 +23,8 @@ export default class Login extends React.Component {
         this.handleChangePassword = this.handleChangePassword.bind(this);
     }
 
-    componentDidMount() {        
+    componentDidMount() {
+        document.getElementById('app_body').classList.add('bg-login');
     }
 
     handleSubmit(e) {

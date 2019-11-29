@@ -5,8 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e1e1e1 !important;
-} 
+}
+
+#app_body.bg-login {
+  background-color: #e1e1e1;
+}
 
 /*
 code {
