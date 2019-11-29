@@ -6,7 +6,7 @@ const button_min_width = {minWidth: '6rem'}
 const ErrorHeaderButtons = () => {
     return (
         <div>
-            <Jumbotron style={{backgroundColor: '#e1e1e1', padding: '2rem 2rem'}}>
+            <Jumbotron style={{backgroundColor: '#e1e1e1', padding: '2rem 2rem', marginBottom: 0}}>
                 <Row>
                     <Col>
                         <ButtonToolbar>
