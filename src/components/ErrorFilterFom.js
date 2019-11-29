@@ -10,11 +10,25 @@ class ErrorFilterForm extends React.Component {
     handleSearch(props, search_content) {
         let search_by = document.getElementById('formGridSearchBy').value;
 
-        search_content !== '' ? (
-            props.onChange(`/search?${search_by}=${search_content}`)
-        ) : (
-            props.onChange('')
-        )
+        if (search_by === 'level') {
+            search_content !== '' ? (
+                props.onChange(`/searchByLevel?${search_by}=${search_content}`)
+            ) : (
+                props.onChange('')
+            )
+        } else if (search_by === 'description') {
+            search_content !== '' ? (
+                props.onChange(`/searchByDescription?${search_by}=${search_content}`)
+            ) : (
+                props.onChange('')
+            )
+        } else if (search_by === 'origin') {
+            search_content !== '' ? (
+                props.onChange(`/searchByOrigin?${search_by}=${search_content}`)
+            ) : (
+                props.onChange('')
+            )
+        }
     }
 
     handleFilter(props) { 
@@ -28,13 +42,13 @@ class ErrorFilterForm extends React.Component {
                 return this.props.onChange('');
             }
 
-            return props.onChange(`/filter?${order_filter}`);
+            return props.onChange(`/filterOrderBy?${order_filter}`);
         } else {
             if (order_value === '') {
-                return props.onChange(`/filter?${env_filter}`);
+                return props.onChange(`/filterByEnvironment?${env_filter}`);
             }
 
-            return props.onChange(`/filter?${env_filter}&${order_filter}`);
+            return props.onChange(`/filterByEnvironmentOrderBy?${env_filter}&${order_filter}`);
         }
     }
 
