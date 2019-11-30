@@ -1,12 +1,8 @@
 import React from 'react';
-import { Form, Col, Card, Button, InputGroup } from 'react-bootstrap';
+import { Form, Col, Card, InputGroup } from 'react-bootstrap';
 
 
 class ErrorFilterForm extends React.Component {
-    constructor(props){ 
-        super(props);
-    }
-
     handleSearch(props, search_content) {
         let search_by = document.getElementById('formGridSearchBy').value;
 
@@ -106,7 +102,9 @@ class ErrorFilterForm extends React.Component {
                                         }
                                     />
                                     <InputGroup.Append>
-                                        <Button variant="outline-secondary">Buscar</Button>
+                                        <span className="input-group-text">
+                                            <i className="material-icons">search</i>
+                                        </span>
                                     </InputGroup.Append>
                                 </InputGroup>
                             </Form.Group>

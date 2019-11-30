@@ -9,7 +9,6 @@ import '../css/login.css';
 export default class Login extends React.Component {
     constructor(props) {
         super(props);
-        console.log(props);
         this.state = {
             user: {
                 email: '',
@@ -45,10 +44,8 @@ export default class Login extends React.Component {
         axios.post(`${API_URL}/login`,
             { email: `${email}`, password: `${password}` })
             .then(resp => {
-                console.log(resp);
                 if (resp.status === 200 && resp.data !== null) {
                     let token = resp.data.replace("Bearer ", "");
-                    console.log(token);
                     this.setState(prevState => ({
                         user: {
                             ...prevState.user,

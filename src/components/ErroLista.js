@@ -1,11 +1,10 @@
 import React from 'react';
 import Cabecalho from './Cabecalho';
-import { getToken, API_URL } from '../service/auth';
+import { API_URL } from '../service/auth';
 import axios from 'axios';
 import ErrorFilterForm from './ErrorFilterFom';
 import ErrorHeaderButtons from './ErrorHeaderButtons';
 
-import '../css/erroLista.css';
 import ErrorTable from './ErrorTable';
 
 class ErroLista extends React.Component {
@@ -26,14 +25,13 @@ class ErroLista extends React.Component {
         document.getElementById('app_body').classList.remove('bg-login');
         
         axios.get(`${API_URL}/v1/log${param}`,
-            { headers: { 'Authorization':`Bearer ${getToken}`}})
+            { headers: { 'Authorization':`Bearer ${sessionStorage.getItem('jwt_token')}`}})
         .then(resp => {
             if (resp.status === 200 && resp.data !== null) {
                 this.setState({ logs: resp.data });
             }
         })
         .catch(error => {
-            console.log(error);
         });
     }
 
@@ -46,7 +44,7 @@ class ErroLista extends React.Component {
             <div>
                 <Cabecalho />
                 <ErrorFilterForm onChange={(value) => this.filterLogsBy(value)}/>
-                <ErrorHeaderButtons />
+                <ErrorHeaderButtons saveLog={() => this.findAllLogs()}/>
                 <ErrorTable logs={this.state.logs} />
             </div>
         )
